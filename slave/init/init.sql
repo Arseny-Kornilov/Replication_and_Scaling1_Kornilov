@@ -1,0 +1,12 @@
+SET GLOBAL gtid_mode = ON;
+SET GLOBAL enforce_gtid_consistency = ON;
+
+SELECT SLEEP(5);
+
+CHANGE MASTER TO
+MASTER_HOST='mysql_master',
+MASTER_USER='repl_user',
+MASTER_PASSWORD='111',
+MASTER_AUTO_POSITION=1;
+
+START SLAVE;

@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  mysql_master:
+    image: mysql:8.0
+    container_name: mysql_master
+    environment:
+      MYSQL_ROOT_PASSWORD: 111
+      MYSQL_DATABASE: mydb
+    ports:
+      - "4406:3306"
+    volumes:
+      - ./master/conf:/etc/mysql/conf.d
+      - ./master/init:/docker-entrypoint-initdb.d
+    networks:
+      - mysql_net
+
+  mysql_slave:
+    image: mysql:8.0
+    container_name: mysql_slave
+    environment:
+      MYSQL_ROOT_PASSWORD: 111
+      MYSQL_DATABASE: mydb
+    ports:
+      - "5506:3306"
+    volumes:
+      - ./slave/conf:/etc/mysql/conf.d
+      - ./slave/init:/docker-entrypoint-initdb.d
+    depends_on:
+      - mysql_master
+    networks:
+      - mysql_net
+
+networks:
+  mysql_net:
+    driver: bridge
