@@ -6,3 +6,15 @@
 #### ОТВЕТ: Репликация master-slave подразумевает наличие одного ведущего сервера (master) и подчиненных к нему (slave). В данном типе репликации запись осуществляется только на master, а для slave имеется только чтение. master-slave удобна в системах, где нагрузка на чтение значительно превышает нагрузку на запись (например, веб-сайты).Однако важным недостатком ялвяется то, что при падении master возможность записи будет недоступна до его восстановления.
 
 #### В репликации master-master каждый сервер может принимать запись и является одновременно и Master, и Slave для других серверов. Данный тип отлично подходит под системы, где запись крайне необходима и имеет низкую задержку (например, в геораспределенных приложениях). Однако, в отличие от репликации master-slave, она более сложна в настройке и управлении, а также подвержена конфликтам согласованности данных из-за асинхронной репликации.
+
+
+### Задание 2.
+Выполните конфигурацию master-slave репликации, примером можно пользоваться из лекции.
+<img width="1365" height="593" alt="image" src="https://github.com/user-attachments/assets/8a407b3d-eee4-4c11-811c-a9d842ee620c" />
+<img width="750" height="291" alt="image" src="https://github.com/user-attachments/assets/2b0151a9-c4c5-4e0b-89e7-7d1a85913985" />
+
+
+<img width="1300" height="606" alt="image" src="https://github.com/user-attachments/assets/eb609c08-e439-4bcb-8db4-fb5fd7d069fc" />
+<img width="1051" height="215" alt="image" src="https://github.com/user-attachments/assets/09f307ea-a7be-4fd5-b104-bd150ee7e842" />
+<img width="1297" height="572" alt="image" src="https://github.com/user-attachments/assets/de89ab20-f97e-4cf8-9a7b-69e33a8a5738" />
+
